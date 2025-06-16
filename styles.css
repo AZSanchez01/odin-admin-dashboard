@@ -1,0 +1,189 @@
+@font-face {
+    font-family: 'Metropolis';
+    src: url('./fonts/metropolis/Metropolis-Medium.woff2') format('woff2'),
+        url('./fonts/metropolis/Metropolis-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Metropolis';
+    src: url('./fonts/metropolis/Metropolis-Bold.woff2') format('woff2'),
+        url('./fonts/metropolis/Metropolis-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*STYLING PROPER*/
+:root {
+
+    font-family: 'Metropolis';
+    --color-primary-1: #301E67;
+    --color-primary-2: #ffffff;
+    --color-primary-3: #03001C;
+    --color-accent: #5B8FB9;
+    --color-background: #B6EADA;
+
+    --font-family-header: 'Metropolis';
+    --font-family-subheader: 'Metropolis';
+    --font-family-content: 'Metropolis';
+
+    --font-size-header: 2rem;
+    --font-size-subheader: 1.7rem;
+    --font-size-base: 1rem;
+    --font-size-small: 0.8rem;
+
+    --spacing-xsm: 0.3rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xlg: 3.5rem;
+
+    --shadow-margin-bot: 0.2rem;
+    --shadow-margin-right: 0.1rem;
+    --shadow-color: lightgray;
+    --shadow-blur: 0.5rem;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 5fr;
+    background-color: rgb(182, 234, 218, 0.3);
+}
+
+
+/*SIDEBAR ELEMENTS*/
+.sidebar img {
+    filter: invert(98%) sepia(0%) saturate(7500%) hue-rotate(224deg) brightness(104%) contrast(104%);
+}
+.sidebar .icon {
+    max-width: 25px;
+}
+.sidebar {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+
+    color: var(--color-primary-2);
+    background: var(--color-primary-1);
+    padding: var(--spacing-md);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.logo {
+    max-width: 40px;
+}
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-subheader);
+    font-weight: bold;
+}
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--spacing-sm);
+    list-style: none;
+    gap: var(--spacing-sm);
+}
+.sidebar li,
+.sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-primary-2);
+    gap: var(--spacing-lg);
+}
+.sidebar a:hover {
+    opacity: 0.8;
+}
+
+/*HEADER ELEMENTS*/
+header {
+    background: var(--color-primary-2);
+    color: var(--color-primary-3);
+    margin-bottom: var(--shadow-margin-bot);
+    padding: var(--spacing-md) var(--spacing-xlg);
+    box-shadow: 0 var(--shadow-margin-bot) var(--shadow-blur) var(--shadow-color);
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xsm);
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+.search-bar input {
+    flex: 1;
+    border-radius: var(--spacing-md);
+    background: var(--color-background);
+    border: 1px solid gray;
+    height: 60%;
+    opacity: 0.3;
+}
+.account {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 2fr;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    align-items: center;
+}
+header .icon {
+    width: 30px;
+}
+.account .icon {
+    grid-column-start: 2;
+}
+header .dp-account {
+    max-width: 2.5rem;
+    border-radius: 50%;
+}
+
+header>div.greetings {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    font-weight: bold;
+    column-gap: var(--spacing-sm);
+}
+header .dp-greetings {
+    grid-row: span 2;
+    max-width: 100%;
+    border-radius: 50%;
+}
+header .greeting-text {
+    font-size: var(--font-size-small);
+    align-self: end;
+}
+header .profile-name {
+    font-size: var(--font-size-subheader);
+}
+header>div.functions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-sm);
+}
+header>div.functions > button {
+    color: var(--color-primary-2);
+    background: var(--color-primary-1);
+    outline: none;
+    border: none;
+    font-weight: bold;
+    padding: var(--spacing-sm);
+    border-radius: var(--spacing-md);
+}
+
+/*MAIN MODY ELEMENTS*/
