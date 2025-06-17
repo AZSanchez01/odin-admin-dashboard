@@ -16,6 +16,51 @@
 }
 
 /*STYLING PROPER*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
 :root {
 
     font-family: 'Metropolis';
@@ -116,6 +161,7 @@ header {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: var(--spacing-xsm);
+    font-weight: bold;
 }
 .search-bar {
     display: flex;
@@ -125,10 +171,11 @@ header {
 .search-bar input {
     flex: 1;
     border-radius: var(--spacing-md);
-    background: var(--color-background);
+    background-color: rgb(182, 234, 218, 0.3);
     border: 1px solid gray;
+    color: var(--color-primary-3);
+    padding: 0 var(--spacing-sm);
     height: 60%;
-    opacity: 0.3;
 }
 .account {
     display: grid;
@@ -181,9 +228,45 @@ header>div.functions > button {
     background: var(--color-primary-1);
     outline: none;
     border: none;
-    font-weight: bold;
     padding: var(--spacing-sm);
     border-radius: var(--spacing-md);
 }
 
-/*MAIN MODY ELEMENTS*/
+/*MAIN BODY ELEMENTS*/
+main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: var(--spacing-lg);
+    gap: var(--spacing-md);
+}
+main .header-text {
+    font-weight: bold;
+}
+main .projects-container {
+    grid-row: span 2;
+}
+
+main [class$="list"] {
+    height: calc(100% - var(--font-size-base));
+}
+
+.card {
+    background: white;
+    border-radius: 0.4rem;
+    height: 100%;
+    padding: var(--font-size-base) var(--font-size-small);
+    box-shadow: var(--shadow-margin-right) var(--shadow-margin-bot) var(--shadow-blur) var(--shadow-color);
+}
+
+.projects-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+}
+.projects-list .card {
+    border-left: var(--spacing-sm) solid var(--color-accent);
+    
+}
+.card-title {
+    font-weight: bold;
+}
